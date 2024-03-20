@@ -32,7 +32,7 @@ class Game {
 
     // C38 TA
     bush = new Group();
-    grass = new Group();
+   grass = new Group();
 
     // Adicione o sprite de combustível ao jogo
     this.addSprites(bush, 4, bushImage, 0.02);
@@ -108,7 +108,7 @@ class Game {
   }
 
   handleBush(index) {
-    // Adicione combustível
+    // Adicione o combustível
     animals[index - 1].overlap(bush, function(collector, collected) {
       player.bush = 185;
       //collected (coletado) é o sprite no grupo de colecionáveis que desencadeia
@@ -117,16 +117,13 @@ class Game {
     });
   }
 
-  handleGrass(index){
-
+  handleGrass(index) {
     animals[index - 1].overlap(grass, function(collector, collected) {
-    player.score += 21;
-    player.update();
-    collected.remove();
-     });
-
-
+      player.score += 21;
+      player.update();
+      //collected (coletado) é o sprite no grupo de colecionáveis que desencadeia
+      //o evento
+      collected.remove();
+    });
   }
-
-    
 }
